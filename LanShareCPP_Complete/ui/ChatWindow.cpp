@@ -236,37 +236,30 @@ void ChatWindow::switchToContact(const QString& contactId, bool isGroup)
 void ChatWindow::onSendClicked()
 {
     QString message = ui->messageInput->toPlainText().trimmed();
-    
-    if (message.isEmpty() || currentContact_.isEmpty()) {
-        return;
-    }
+    if (message.isEmpty() || currentContact_.isEmpty()) return;
     
     try {
-        // Encrypt message
+        // Use a shared key derived from both usernames (same result on both sides)
+        auto sharedKey = getSharedKey(currentContact_);
+        
         auto encrypted = client_->getCrypto().encrypt(
-            message.toStdString(), 
-            client_->getEncryptionKey()
+            message.toStdString(), sharedKey
         );
         auto blob = encrypted.serialize();
         
-        // Send message
         if (currentIsGroup_) {
             client_->sendGroupMessage(currentContact_.toStdString(), blob);
         } else {
             client_->sendPrivateMessage(currentContact_.toStdString(), blob);
         }
         
-        // Add to chat display (own message)
         addMessageToChat("You", message, true, false);
-        
-        // Clear input
         ui->messageInput->clear();
         
     } catch (const std::exception& e) {
         QMessageBox::warning(this, "Error", QString("Failed to send: %1").arg(e.what()));
     }
 }
-
 void ChatWindow::onAttachClicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this, "Select File", "", "All Files (*.*)");
@@ -337,7 +330,10 @@ void ChatWindow::onDecryptClicked(MessageBubble* bubble)
 {
     try {
         auto encrypted = LanShare::AESGCM::EncryptedData::deserialize(bubble->getEncryptedData());
-        std::string plaintext = client_->getCrypto().decryptToString(encrypted, client_->getEncryptionKey());
+        
+        // Use same shared key derivation — will match sender's key
+        auto sharedKey = getSharedKey(currentContact_);
+        std::string plaintext = client_->getCrypto().decryptToString(encrypted, sharedKey);
         
         bubble->setDecryptedText(QString::fromStdString(plaintext));
         
@@ -435,4 +431,15 @@ QString ChatWindow::getCurrentContact() const
 bool ChatWindow::isCurrentContactGroup() const
 {
     return currentIsGroup_;
+}
+LanShare::AESGCM::Key ChatWindow::getSharedKey(const QString& contact)
+{
+    QString myID = QString::fromStdString(client_->getUserID());
+    QStringList parts = {myID, contact};
+    parts.sort();  // Sort so A→B and B→A give same key
+    
+    std::string sharedSecret = parts[0].toStdString() + ":" + 
+                               parts[1].toStdString() + ":lanshare-v1";
+    
+    return LanShare::AESGCM::deriveKeyFromPassword(sharedSecret, "lanshare-salt-2024");
 }

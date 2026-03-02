@@ -52,6 +52,7 @@ private:
     void switchToContact(const QString& contactId, bool isGroup);
     void clearChat();
     void scrollToBottom();
+     LanShare::AESGCM::Key getSharedKey(const QString& contact);  // ← ADD THIS LINE
     QString getCurrentContact() const;
     bool isCurrentContactGroup() const;
 
