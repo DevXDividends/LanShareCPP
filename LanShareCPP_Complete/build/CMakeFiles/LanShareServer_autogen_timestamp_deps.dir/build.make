@@ -55,7 +55,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = "D:\ADITYA\LanShare C++\LanShareCPP_Complete"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Aditya\LanShare C++\LanShareCPP_Complete\build"
+CMAKE_BINARY_DIR = "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build"
 
 # Utility rule file for LanShareServer_autogen_timestamp_deps.
 
@@ -80,6 +80,6 @@ CMakeFiles/LanShareServer_autogen_timestamp_deps.dir/clean:
 .PHONY : CMakeFiles/LanShareServer_autogen_timestamp_deps.dir/clean
 
 CMakeFiles/LanShareServer_autogen_timestamp_deps.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\Aditya\LanShare C++\LanShareCPP_Complete\build" "D:\Aditya\LanShare C++\LanShareCPP_Complete\build" "D:\Aditya\LanShare C++\LanShareCPP_Complete\build\CMakeFiles\LanShareServer_autogen_timestamp_deps.dir\DependInfo.cmake" "--color=$(COLOR)" LanShareServer_autogen_timestamp_deps
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build" "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build" "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\CMakeFiles\LanShareServer_autogen_timestamp_deps.dir\DependInfo.cmake" "--color=$(COLOR)" LanShareServer_autogen_timestamp_deps
 .PHONY : CMakeFiles/LanShareServer_autogen_timestamp_deps.dir/depend
 

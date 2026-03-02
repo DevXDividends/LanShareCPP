@@ -983,7 +983,8 @@ CMakeFiles/lanshare_client.dir/client/main.cpp.obj: D:/ADITYA/LanShare\ C++/LanS
   D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/common/Protocol.h \
   D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/client/ClientCore.h
 
-CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj: lanshare_client_autogen/mocs_compilation.cpp
+CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj: lanshare_client_autogen/mocs_compilation.cpp \
+  lanshare_client_autogen/mocs_compilation.cpp
 
 lanshare_client_autogen/timestamp: C:/msys64/mingw64/bin/cmake.exe \
   C:/msys64/mingw64/lib/cmake/Boost-1.90.0/BoostConfig.cmake \
@@ -1310,85 +1311,23 @@ lanshare_client_autogen/timestamp: C:/msys64/mingw64/bin/cmake.exe \
   C:/msys64/mingw64/lib/cmake/boost_winapi-1.90.0/boost_winapi-config-version.cmake \
   C:/msys64/mingw64/lib/cmake/boost_winapi-1.90.0/boost_winapi-config.cmake \
   C:/msys64/mingw64/lib/cmake/boost_winapi-1.90.0/boost_winapi-targets.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeCXXCompiler.cmake.in \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeCXXCompilerABI.cpp \
   C:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeCompilerIdDetection.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerABI.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineRCCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineSystem.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CMakeFindDependencyMacro.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeMinGWFindMake.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeRCCompiler.cmake.in \
   C:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeSystem.cmake.in \
   C:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeTestCXXCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeTestCompilerCommon.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/CMakeTestRCCompiler.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CheckCXXCompilerFlag.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CheckCXXSourceCompiles.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CheckIncludeFileCXX.cmake \
   C:/msys64/mingw64/share/cmake/Modules/CheckLibraryExists.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
   C:/msys64/mingw64/share/cmake/Modules/FindBoost.cmake \
   C:/msys64/mingw64/share/cmake/Modules/FindOpenSSL.cmake \
   C:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake \
@@ -1398,18 +1337,14 @@ lanshare_client_autogen/timestamp: C:/msys64/mingw64/bin/cmake.exe \
   C:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Internal/CheckCompilerFlag.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Internal/FeatureTesting.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake \
-  C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Determine-CXX.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake \
@@ -1418,10 +1353,10 @@ lanshare_client_autogen/timestamp: C:/msys64/mingw64/bin/cmake.exe \
   C:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake \
   D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/CMakeLists.txt \
-  D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/client/main.cpp \
   CMakeFiles/4.2.3/CMakeCXXCompiler.cmake \
   CMakeFiles/4.2.3/CMakeRCCompiler.cmake \
-  CMakeFiles/4.2.3/CMakeSystem.cmake
+  CMakeFiles/4.2.3/CMakeSystem.cmake \
+  D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/client/main.cpp
 
 
 CMakeFiles/4.2.3/CMakeSystem.cmake:
@@ -1434,15 +1369,15 @@ C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake:
 
 C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Determine-CXX.cmake:
-
 C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake:
+
+C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake:
 
 C:/msys64/mingw64/share/cmake/Modules/Linker/GNU.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:
+C:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake:
+C:/msys64/mingw64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:
 
 C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake:
 
@@ -1456,83 +1391,13 @@ C:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake:
 
 C:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Platform/Linker/GNU.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Linker/GNU-CXX.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake:
 
 C:/msys64/mingw64/share/cmake/Modules/CheckLibraryExists.cmake:
 
 C:/msys64/mingw64/share/cmake/Modules/CheckCXXSourceCompiles.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/CMakeTestRCCompiler.cmake:
-
 C:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeSystem.cmake.in:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeRCCompiler.cmake.in:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeMinGWFindMake.cmake:
 
 C:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake:
 
@@ -1540,25 +1405,9 @@ C:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake:
 
 C:/msys64/mingw64/share/cmake/Modules/CMakeFindDependencyMacro.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineSystem.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeCompilerIdDetection.cmake:
-
 C:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake:
 
 C:/msys64/mingw64/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeCXXCompilerABI.cpp:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeFindBinUtils.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineRCCompiler.cmake:
 
 C:/msys64/mingw64/lib/cmake/boost_winapi-1.90.0/boost_winapi-targets.cmake:
 
@@ -1605,8 +1454,6 @@ C:/msys64/mingw64/lib/cmake/boost_static_assert-1.90.0/boost_static_assert-confi
 C:/msys64/mingw64/lib/cmake/boost_smart_ptr-1.90.0/boost_smart_ptr-config.cmake:
 
 C:/msys64/mingw64/lib/cmake/boost_smart_ptr-1.90.0/boost_smart_ptr-config-version.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:
 
 C:/msys64/mingw64/lib/cmake/boost_regex-1.90.0/boost_regex-targets.cmake:
 
@@ -1738,8 +1585,6 @@ C:/msys64/mingw64/lib/cmake/boost_atomic-1.90.0-static/boost_atomic-config.cmake
 
 C:/msys64/mingw64/lib/cmake/boost_assert-1.90.0/boost_assert-config.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/lib/cmake/boost_ratio-1.90.0/boost_ratio-targets.cmake:
 
 C:/msys64/mingw64/lib/cmake/boost_array-1.90.0/boost_array-targets.cmake:
@@ -1774,8 +1619,6 @@ C:/msys64/mingw64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake:
 
 C:/msys64/mingw64/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake:
 
 C:/msys64/mingw64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake:
@@ -1793,8 +1636,6 @@ C:/msys64/mingw64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake:
 C:/msys64/mingw64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake:
 
 C:/msys64/mingw64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake:
 
 C:/msys64/mingw64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake:
 
@@ -1862,8 +1703,6 @@ C:/msys64/mingw64/include/boost/predef/platform/windows_runtime.h:
 
 C:/msys64/mingw64/include/boost/asio/multiple_exceptions.hpp:
 
-C:/msys64/mingw64/share/cmake/Modules/CMakeCXXCompiler.cmake.in:
-
 C:/msys64/mingw64/include/boost/predef/platform/mingw.h:
 
 C:/msys64/mingw64/include/boost/predef/platform.h:
@@ -1930,8 +1769,6 @@ C:/msys64/mingw64/include/boost/asio/windows/overlapped_handle.hpp:
 
 C:/msys64/mingw64/include/c++/15.2.0/streambuf:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/include/boost/asio/windows/basic_random_access_handle.hpp:
 
 C:/msys64/mingw64/include/boost/asio/windows/basic_overlapped_handle.hpp:
@@ -1942,15 +1779,11 @@ C:/msys64/mingw64/include/boost/asio/version.hpp:
 
 C:/msys64/mingw64/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:
-
 C:/msys64/mingw64/include/boost/asio/traits/prefer_member.hpp:
 
 C:/msys64/mingw64/include/boost/asio/detail/buffer_resize_guard.hpp:
 
 C:/msys64/mingw64/include/boost/asio/traits/static_query.hpp:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake:
 
 C:/msys64/mingw64/include/boost/asio/impl/use_future.hpp:
 
@@ -2028,8 +1861,6 @@ C:/msys64/mingw64/include/boost/asio/is_read_buffered.hpp:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/atomic_futex.h:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/include/boost/asio/ip/v6_only.hpp:
 
 C:/msys64/mingw64/include/boost/asio/ip/udp.hpp:
@@ -2043,8 +1874,6 @@ C:/msys64/mingw64/include/boost/version.hpp:
 C:/msys64/mingw64/include/boost/asio/ip/resolver_query_base.hpp:
 
 C:/msys64/mingw64/include/boost/asio/serial_port.hpp:
-
-C:/msys64/mingw64/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:
 
 C:/msys64/mingw64/lib/cmake/Qt6/Qt6VersionlessAliasTargets.cmake:
 
@@ -2236,8 +2065,6 @@ C:/msys64/mingw64/share/cmake/Modules/CheckIncludeFileCXX.cmake:
 
 C:/msys64/mingw64/include/boost/asio/generic/detail/impl/endpoint.ipp:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/include/boost/asio/detail/array_fwd.hpp:
 
 C:/msys64/mingw64/include/boost/asio/detail/conditionally_enabled_mutex.hpp:
@@ -2247,8 +2074,6 @@ C:/msys64/mingw64/include/boost/predef/platform/ios.h:
 C:/msys64/mingw64/include/boost/asio/traits/execute_member.hpp:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/smmintrin.h:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake:
 
 C:/msys64/mingw64/include/boost/asio/generic/datagram_protocol.hpp:
 
@@ -2273,8 +2098,6 @@ C:/msys64/mingw64/include/boost/config.hpp:
 C:/msys64/mingw64/include/boost/asio/execution/prefer_only.hpp:
 
 C:/msys64/mingw64/include/boost/asio/execution/outstanding_work.hpp:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake:
 
 C:/msys64/mingw64/include/boost/asio/detail/reactor.hpp:
 
@@ -2394,8 +2217,6 @@ C:/msys64/mingw64/include/boost/asio/impl/append.hpp:
 
 C:/msys64/mingw64/include/c++/15.2.0/algorithm:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/include/boost/asio/detail/initiate_defer.hpp:
 
 C:/msys64/mingw64/include/bemapiset.h:
@@ -2452,15 +2273,11 @@ C:/msys64/mingw64/share/cmake/Modules/CheckCXXCompilerFlag.cmake:
 
 C:/msys64/mingw64/include/boost/asio/registered_buffer.hpp:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/include/boost/asio/detail/win_iocp_null_buffers_op.hpp:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/vaesintrin.h:
 
 C:/msys64/mingw64/include/boost/asio/detail/base_from_cancellation_state.hpp:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake:
 
 C:/msys64/mingw64/include/c++/15.2.0/bits/exception.h:
 
@@ -2604,15 +2421,11 @@ C:/msys64/mingw64/include/boost/asio/detail/initiate_post.hpp:
 
 C:/msys64/mingw64/include/apiset.h:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/include/boost/asio/execution/executor.hpp:
 
 C:/msys64/mingw64/include/boost/asio/steady_timer.hpp:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/cetintrin.h:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeDetermineCompilerId.cmake:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/xtestintrin.h:
 
@@ -2943,8 +2756,6 @@ C:/msys64/mingw64/include/boost/asio/buffered_read_stream.hpp:
 C:/msys64/mingw64/lib/cmake/Qt6/Qt6Config.cmake:
 
 C:/msys64/mingw64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginConfig.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/CMakeTestCXXCompiler.cmake:
 
 C:/msys64/mingw64/include/boost/asio/detail/config.hpp:
 
@@ -3634,8 +3445,6 @@ C:/msys64/mingw64/include/c++/15.2.0/stdlib.h:
 
 C:/msys64/mingw64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake:
 
-C:/msys64/mingw64/share/cmake/Modules/CMakeTestCompilerCommon.cmake:
-
 C:/msys64/mingw64/include/boost/predef/platform/android.h:
 
 C:/msys64/mingw64/include/c++/15.2.0/string:
@@ -3807,8 +3616,6 @@ C:/msys64/mingw64/include/sched.h:
 C:/msys64/mingw64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake:
 
 C:/msys64/mingw64/include/sdkddkver.h:
-
-C:/msys64/mingw64/share/cmake/Modules/Internal/FeatureTesting.cmake:
 
 C:/msys64/mingw64/include/boost/predef/detail/test.h:
 
@@ -4006,8 +3813,6 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512vpopcntdqvlint
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/fma4intrin.h:
 
-C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake:
-
 C:/msys64/mingw64/include/c++/15.2.0/bits/stl_raw_storage_iter.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/keylockerintrin.h:
@@ -4125,8 +3930,6 @@ C:/msys64/mingw64/lib/cmake/Qt6/QtPublicAndroidHelpers.cmake:
 C:/msys64/mingw64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake:
 
 C:/msys64/mingw64/lib/cmake/Qt6/QtPublicCMakeEarlyPolicyHelpers.cmake:
-
-C:/msys64/mingw64/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake:
 
 C:/msys64/mingw64/include/minwinbase.h:
 

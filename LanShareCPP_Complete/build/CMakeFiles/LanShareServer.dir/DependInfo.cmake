@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "LanShareServer_autogen/timestamp" "custom" "LanShareServer_autogen/deps"
-  "D:/Aditya/LanShare C++/LanShareCPP_Complete/build/LanShareServer_autogen/mocs_compilation.cpp" "CMakeFiles/LanShareServer.dir/LanShareServer_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/LanShareServer.dir/LanShareServer_autogen/mocs_compilation.cpp.obj.d"
+  "D:/ADITYA/LanShare C++/LanShareCPP_Complete/build/LanShareServer_autogen/mocs_compilation.cpp" "CMakeFiles/LanShareServer.dir/LanShareServer_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/LanShareServer.dir/LanShareServer_autogen/mocs_compilation.cpp.obj.d"
   "D:/ADITYA/LanShare C++/LanShareCPP_Complete/server/AuthManager.cpp" "CMakeFiles/LanShareServer.dir/server/AuthManager.cpp.obj" "gcc" "CMakeFiles/LanShareServer.dir/server/AuthManager.cpp.obj.d"
   "D:/ADITYA/LanShare C++/LanShareCPP_Complete/server/ClientSession.cpp" "CMakeFiles/LanShareServer.dir/server/ClientSession.cpp.obj" "gcc" "CMakeFiles/LanShareServer.dir/server/ClientSession.cpp.obj.d"
   "D:/ADITYA/LanShare C++/LanShareCPP_Complete/server/GroupManager.cpp" "CMakeFiles/LanShareServer.dir/server/GroupManager.cpp.obj" "gcc" "CMakeFiles/LanShareServer.dir/server/GroupManager.cpp.obj.d"

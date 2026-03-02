@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "lanshare_gui_autogen/timestamp" "custom" "lanshare_gui_autogen/deps"
-  "D:/Aditya/LanShare C++/LanShareCPP_Complete/build/lanshare_gui_autogen/mocs_compilation.cpp" "CMakeFiles/lanshare_gui.dir/lanshare_gui_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/lanshare_gui.dir/lanshare_gui_autogen/mocs_compilation.cpp.obj.d"
+  "D:/ADITYA/LanShare C++/LanShareCPP_Complete/build/lanshare_gui_autogen/mocs_compilation.cpp" "CMakeFiles/lanshare_gui.dir/lanshare_gui_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/lanshare_gui.dir/lanshare_gui_autogen/mocs_compilation.cpp.obj.d"
   "D:/ADITYA/LanShare C++/LanShareCPP_Complete/ui/ChatWindow.cpp" "CMakeFiles/lanshare_gui.dir/ui/ChatWindow.cpp.obj" "gcc" "CMakeFiles/lanshare_gui.dir/ui/ChatWindow.cpp.obj.d"
   "D:/ADITYA/LanShare C++/LanShareCPP_Complete/ui/FileTransferWidget.cpp" "CMakeFiles/lanshare_gui.dir/ui/FileTransferWidget.cpp.obj" "gcc" "CMakeFiles/lanshare_gui.dir/ui/FileTransferWidget.cpp.obj.d"
   "D:/ADITYA/LanShare C++/LanShareCPP_Complete/ui/LoginWindow.cpp" "CMakeFiles/lanshare_gui.dir/ui/LoginWindow.cpp.obj" "gcc" "CMakeFiles/lanshare_gui.dir/ui/LoginWindow.cpp.obj.d"

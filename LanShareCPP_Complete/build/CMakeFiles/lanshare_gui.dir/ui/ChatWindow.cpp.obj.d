@@ -1202,7 +1202,7 @@ CMakeFiles/lanshare_gui.dir/ui/ChatWindow.cpp.obj: \
  D:\ADITYA\LanShare\ C++\LanShareCPP_Complete\ui\FileTransferWidget.h \
  C:/msys64/mingw64/include/qt6/QtWidgets/QProgressBar \
  C:/msys64/mingw64/include/qt6/QtWidgets/qprogressbar.h \
- D:/Aditya/LanShare\ C++/LanShareCPP_Complete/build/lanshare_gui_autogen/include/ui_ChatWindow.h \
+ D:/ADITYA/LANSHA~1/LANSHA~1/build/LA49CD~1/include/ui_ChatWindow.h \
  C:/msys64/mingw64/include/qt6/QtCore/QVariant \
  C:/msys64/mingw64/include/qt6/QtCore/qvariant.h \
  C:/msys64/mingw64/include/qt6/QtWidgets/QApplication \

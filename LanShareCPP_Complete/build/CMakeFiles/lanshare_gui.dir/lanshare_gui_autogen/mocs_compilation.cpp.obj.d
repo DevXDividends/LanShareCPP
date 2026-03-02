@@ -1,6 +1,6 @@
 CMakeFiles/lanshare_gui.dir/lanshare_gui_autogen/mocs_compilation.cpp.obj: \
- D:\Aditya\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\mocs_compilation.cpp \
- D:\Aditya\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\UYX5XTB5RZ/moc_ChatWindow.cpp \
+ D:\ADITYA\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\mocs_compilation.cpp \
+ D:\ADITYA\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\UYX5XTB5RZ/moc_ChatWindow.cpp \
  D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/ui/ChatWindow.h \
  C:/msys64/mingw64/include/qt6/QtWidgets/QMainWindow \
  C:/msys64/mingw64/include/qt6/QtWidgets/qmainwindow.h \
@@ -1200,15 +1200,15 @@ CMakeFiles/lanshare_gui.dir/lanshare_gui_autogen/mocs_compilation.cpp.obj: \
  C:/msys64/mingw64/include/qt6/QtCore/qtmochelpers.h \
  C:/msys64/mingw64/include/qt6/QtCore/qtmocconstants.h \
  C:/msys64/mingw64/include/qt6/QtCore/q20algorithm.h \
- D:\Aditya\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\UYX5XTB5RZ/moc_FileTransferWidget.cpp \
+ D:\ADITYA\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\UYX5XTB5RZ/moc_FileTransferWidget.cpp \
  D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/ui/FileTransferWidget.h \
  C:/msys64/mingw64/include/qt6/QtWidgets/QWidget \
  C:/msys64/mingw64/include/qt6/QtWidgets/qwidget.h \
  C:/msys64/mingw64/include/qt6/QtWidgets/QProgressBar \
  C:/msys64/mingw64/include/qt6/QtWidgets/qprogressbar.h \
- D:\Aditya\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\UYX5XTB5RZ/moc_LoginWindow.cpp \
+ D:\ADITYA\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\UYX5XTB5RZ/moc_LoginWindow.cpp \
  D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/ui/LoginWindow.h \
  C:/msys64/mingw64/include/qt6/QtWidgets/QCheckBox \
  C:/msys64/mingw64/include/qt6/QtWidgets/qcheckbox.h \
- D:\Aditya\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\UYX5XTB5RZ/moc_MessageBubble.cpp \
+ D:\ADITYA\LanShare\ C++\LanShareCPP_Complete\build\lanshare_gui_autogen\UYX5XTB5RZ/moc_MessageBubble.cpp \
  D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/ui/MessageBubble.h

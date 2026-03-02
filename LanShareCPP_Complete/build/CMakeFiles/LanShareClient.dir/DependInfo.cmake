@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "LanShareClient_autogen/timestamp" "custom" "LanShareClient_autogen/deps"
-  "D:/Aditya/LanShare C++/LanShareCPP_Complete/build/LanShareClient_autogen/mocs_compilation.cpp" "CMakeFiles/LanShareClient.dir/LanShareClient_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/LanShareClient.dir/LanShareClient_autogen/mocs_compilation.cpp.obj.d"
+  "D:/ADITYA/LanShare C++/LanShareCPP_Complete/build/LanShareClient_autogen/mocs_compilation.cpp" "CMakeFiles/LanShareClient.dir/LanShareClient_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/LanShareClient.dir/LanShareClient_autogen/mocs_compilation.cpp.obj.d"
   "D:/ADITYA/LanShare C++/LanShareCPP_Complete/client/ClientCore.cpp" "CMakeFiles/LanShareClient.dir/client/ClientCore.cpp.obj" "gcc" "CMakeFiles/LanShareClient.dir/client/ClientCore.cpp.obj.d"
   )
 

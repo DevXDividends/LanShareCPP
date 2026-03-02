@@ -55,7 +55,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = "D:\ADITYA\LanShare C++\LanShareCPP_Complete"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Aditya\LanShare C++\LanShareCPP_Complete\build"
+CMAKE_BINARY_DIR = "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/lanshare_client.dir/depend.make
@@ -71,9 +71,9 @@ include CMakeFiles/lanshare_client.dir/flags.make
 lanshare_client_autogen/timestamp: C:/msys64/mingw64/share/qt6/bin/moc.exe
 lanshare_client_autogen/timestamp: C:/msys64/mingw64/share/qt6/bin/uic.exe
 lanshare_client_autogen/timestamp: CMakeFiles/lanshare_client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="D:\Aditya\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target lanshare_client"
-	C:\msys64\mingw64\bin\cmake.exe -E cmake_autogen "D:/Aditya/LanShare C++/LanShareCPP_Complete/build/CMakeFiles/lanshare_client_autogen.dir/AutogenInfo.json" Release
-	C:\msys64\mingw64\bin\cmake.exe -E touch "D:/Aditya/LanShare C++/LanShareCPP_Complete/build/lanshare_client_autogen/timestamp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target lanshare_client"
+	C:\msys64\mingw64\bin\cmake.exe -E cmake_autogen "D:/ADITYA/LanShare C++/LanShareCPP_Complete/build/CMakeFiles/lanshare_client_autogen.dir/AutogenInfo.json" Release
+	C:\msys64\mingw64\bin\cmake.exe -E touch "D:/ADITYA/LanShare C++/LanShareCPP_Complete/build/lanshare_client_autogen/timestamp"
 
 CMakeFiles/lanshare_client.dir/codegen:
 .PHONY : CMakeFiles/lanshare_client.dir/codegen
@@ -82,22 +82,22 @@ CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj:
 CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj: CMakeFiles/lanshare_client.dir/includes_CXX.rsp
 CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj: lanshare_client_autogen/mocs_compilation.cpp
 CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj: CMakeFiles/lanshare_client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\Aditya\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\lanshare_client.dir\lanshare_client_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\lanshare_client.dir\lanshare_client_autogen\mocs_compilation.cpp.obj -c "D:\Aditya\LanShare C++\LanShareCPP_Complete\build\lanshare_client_autogen\mocs_compilation.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\lanshare_client.dir\lanshare_client_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\lanshare_client.dir\lanshare_client_autogen\mocs_compilation.cpp.obj -c "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\lanshare_client_autogen\mocs_compilation.cpp"
 
 CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Aditya\LanShare C++\LanShareCPP_Complete\build\lanshare_client_autogen\mocs_compilation.cpp" > CMakeFiles\lanshare_client.dir\lanshare_client_autogen\mocs_compilation.cpp.i
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\lanshare_client_autogen\mocs_compilation.cpp" > CMakeFiles\lanshare_client.dir\lanshare_client_autogen\mocs_compilation.cpp.i
 
 CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lanshare_client.dir/lanshare_client_autogen/mocs_compilation.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Aditya\LanShare C++\LanShareCPP_Complete\build\lanshare_client_autogen\mocs_compilation.cpp" -o CMakeFiles\lanshare_client.dir\lanshare_client_autogen\mocs_compilation.cpp.s
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\lanshare_client_autogen\mocs_compilation.cpp" -o CMakeFiles\lanshare_client.dir\lanshare_client_autogen\mocs_compilation.cpp.s
 
 CMakeFiles/lanshare_client.dir/client/main.cpp.obj: CMakeFiles/lanshare_client.dir/flags.make
 CMakeFiles/lanshare_client.dir/client/main.cpp.obj: CMakeFiles/lanshare_client.dir/includes_CXX.rsp
 CMakeFiles/lanshare_client.dir/client/main.cpp.obj: D:/ADITYA/LanShare\ C++/LanShareCPP_Complete/client/main.cpp
 CMakeFiles/lanshare_client.dir/client/main.cpp.obj: CMakeFiles/lanshare_client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\Aditya\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lanshare_client.dir/client/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lanshare_client.dir/client/main.cpp.obj"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lanshare_client.dir/client/main.cpp.obj -MF CMakeFiles\lanshare_client.dir\client\main.cpp.obj.d -o CMakeFiles\lanshare_client.dir\client\main.cpp.obj -c "D:\ADITYA\LanShare C++\LanShareCPP_Complete\client\main.cpp"
 
 CMakeFiles/lanshare_client.dir/client/main.cpp.i: cmake_force
@@ -131,7 +131,7 @@ lanshare_client.exe: C:/msys64/mingw64/lib/libboost_container-mt.a
 lanshare_client.exe: CMakeFiles/lanshare_client.dir/linkLibs.rsp
 lanshare_client.exe: CMakeFiles/lanshare_client.dir/objects1.rsp
 lanshare_client.exe: CMakeFiles/lanshare_client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="D:\Aditya\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable lanshare_client.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable lanshare_client.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\lanshare_client.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -143,6 +143,6 @@ CMakeFiles/lanshare_client.dir/clean:
 .PHONY : CMakeFiles/lanshare_client.dir/clean
 
 CMakeFiles/lanshare_client.dir/depend: lanshare_client_autogen/timestamp
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\Aditya\LanShare C++\LanShareCPP_Complete\build" "D:\Aditya\LanShare C++\LanShareCPP_Complete\build" "D:\Aditya\LanShare C++\LanShareCPP_Complete\build\CMakeFiles\lanshare_client.dir\DependInfo.cmake" "--color=$(COLOR)" lanshare_client
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build" "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build" "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\CMakeFiles\lanshare_client.dir\DependInfo.cmake" "--color=$(COLOR)" lanshare_client
 .PHONY : CMakeFiles/lanshare_client.dir/depend
 

@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "D:/ADITYA/LanShare C++/LanShareCPP_Complete")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "D:/Aditya/LanShare C++/LanShareCPP_Complete/build")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "D:/ADITYA/LanShare C++/LanShareCPP_Complete/build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

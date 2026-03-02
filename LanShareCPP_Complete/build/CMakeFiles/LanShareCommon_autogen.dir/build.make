@@ -55,7 +55,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = "D:\ADITYA\LanShare C++\LanShareCPP_Complete"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Aditya\LanShare C++\LanShareCPP_Complete\build"
+CMAKE_BINARY_DIR = "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build"
 
 # Utility rule file for LanShareCommon_autogen.
 
@@ -70,9 +70,9 @@ CMakeFiles/LanShareCommon_autogen: LanShareCommon_autogen/timestamp
 LanShareCommon_autogen/timestamp: C:/msys64/mingw64/share/qt6/bin/moc.exe
 LanShareCommon_autogen/timestamp: C:/msys64/mingw64/share/qt6/bin/uic.exe
 LanShareCommon_autogen/timestamp: CMakeFiles/LanShareCommon_autogen.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="D:\Aditya\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target LanShareCommon"
-	C:\msys64\mingw64\bin\cmake.exe -E cmake_autogen "D:/Aditya/LanShare C++/LanShareCPP_Complete/build/CMakeFiles/LanShareCommon_autogen.dir/AutogenInfo.json" Release
-	C:\msys64\mingw64\bin\cmake.exe -E touch "D:/Aditya/LanShare C++/LanShareCPP_Complete/build/LanShareCommon_autogen/timestamp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target LanShareCommon"
+	C:\msys64\mingw64\bin\cmake.exe -E cmake_autogen "D:/ADITYA/LanShare C++/LanShareCPP_Complete/build/CMakeFiles/LanShareCommon_autogen.dir/AutogenInfo.json" Release
+	C:\msys64\mingw64\bin\cmake.exe -E touch "D:/ADITYA/LanShare C++/LanShareCPP_Complete/build/LanShareCommon_autogen/timestamp"
 
 CMakeFiles/LanShareCommon_autogen.dir/codegen:
 .PHONY : CMakeFiles/LanShareCommon_autogen.dir/codegen
@@ -91,6 +91,6 @@ CMakeFiles/LanShareCommon_autogen.dir/clean:
 .PHONY : CMakeFiles/LanShareCommon_autogen.dir/clean
 
 CMakeFiles/LanShareCommon_autogen.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\Aditya\LanShare C++\LanShareCPP_Complete\build" "D:\Aditya\LanShare C++\LanShareCPP_Complete\build" "D:\Aditya\LanShare C++\LanShareCPP_Complete\build\CMakeFiles\LanShareCommon_autogen.dir\DependInfo.cmake" "--color=$(COLOR)" LanShareCommon_autogen
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\ADITYA\LanShare C++\LanShareCPP_Complete" "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build" "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build" "D:\ADITYA\LanShare C++\LanShareCPP_Complete\build\CMakeFiles\LanShareCommon_autogen.dir\DependInfo.cmake" "--color=$(COLOR)" LanShareCommon_autogen
 .PHONY : CMakeFiles/LanShareCommon_autogen.dir/depend
 
