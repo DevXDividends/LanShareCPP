@@ -179,8 +179,9 @@ void ClientCore::run() {
 }
 
 void ClientCore::startAsync() {
-    // ADD: keep io_context alive even before connect() is called
-    workGuard_ = boost::asio::make_work_guard(ioContext_);
+    workGuard_ = std::make_unique<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>>(
+        boost::asio::make_work_guard(ioContext_)
+    );
     
     ioThread_ = std::make_unique<std::thread>([this]() {
         ioContext_.run();

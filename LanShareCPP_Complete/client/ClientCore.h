@@ -112,8 +112,9 @@ private:
     std::unique_ptr<std::thread> ioThread_;
 
       // ADD THIS LINE RIGHT HERE ↓
-    std::optional<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>> workGuard_;
-    
+std::unique_ptr<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>> workGuard_;
+
+
     std::string userID_;
     std::string username_;
     std::atomic<bool> authenticated_;
