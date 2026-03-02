@@ -10,6 +10,7 @@
 #include <deque>
 #include <mutex>
 #include <atomic>
+#include <optional>
 
 namespace LanShare {
 
@@ -109,6 +110,9 @@ private:
     boost::asio::io_context ioContext_;
     boost::asio::ip::tcp::socket socket_;
     std::unique_ptr<std::thread> ioThread_;
+
+      // ADD THIS LINE RIGHT HERE ↓
+    std::optional<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>> workGuard_;
     
     std::string userID_;
     std::string username_;
