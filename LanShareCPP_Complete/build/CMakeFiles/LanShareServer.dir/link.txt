@@ -1,2 +1,0 @@
-C:\msys64\mingw64\bin\ar.exe qc libLanShareServer.a CMakeFiles/LanShareServer.dir/LanShareServer_autogen/mocs_compilation.cpp.obj CMakeFiles/LanShareServer.dir/server/ServerCore.cpp.obj CMakeFiles/LanShareServer.dir/server/ClientSession.cpp.obj CMakeFiles/LanShareServer.dir/server/AuthManager.cpp.obj CMakeFiles/LanShareServer.dir/server/GroupManager.cpp.obj CMakeFiles/LanShareServer.dir/server/MessageRouter.cpp.obj
-C:\msys64\mingw64\bin\ranlib.exe libLanShareServer.a

@@ -1,2 +1,0 @@
-C:\msys64\mingw64\bin\ar.exe qc libLanShareCommon.a CMakeFiles/LanShareCommon.dir/LanShareCommon_autogen/mocs_compilation.cpp.obj CMakeFiles/LanShareCommon.dir/common/AESGCM.cpp.obj
-C:\msys64\mingw64\bin\ranlib.exe libLanShareCommon.a

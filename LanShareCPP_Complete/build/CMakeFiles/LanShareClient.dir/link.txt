@@ -1,2 +1,0 @@
-C:\msys64\mingw64\bin\ar.exe qc libLanShareClient.a CMakeFiles/LanShareClient.dir/LanShareClient_autogen/mocs_compilation.cpp.obj CMakeFiles/LanShareClient.dir/client/ClientCore.cpp.obj
-C:\msys64\mingw64\bin\ranlib.exe libLanShareClient.a
