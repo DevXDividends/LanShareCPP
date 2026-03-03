@@ -168,7 +168,7 @@ AESGCM::Key key = AESGCM::deriveKeyFromPassword(
 
                 bytesSent += toRead;
                 chunkIndex++;
-                                std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                                std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
 
                 // Progress callback
@@ -232,13 +232,13 @@ void ClientCore::handleFileMetadata(const std::vector<uint8_t>& payload)
 
     {
         std::lock_guard<std::mutex> lock(filesMutex_);
-        // Key is just fromUserID — simpler, matches handleFileChunk
-        IncomingFile& f = incomingFiles_[fromUserID];
+        incomingFiles_.erase(fromUserID);  // fully remove old entry
+        IncomingFile f;
         f.filename     = filename;
         f.fromUserID   = fromUserID;
         f.totalSize    = filesize;
         f.receivedSize = 0;
-        f.chunks.clear();
+        incomingFiles_[fromUserID] = std::move(f);
     }
 
     std::lock_guard<std::mutex> lock(callbackMutex_);
@@ -548,9 +548,15 @@ void ClientCore::sendMessage(MessageType type, const std::vector<uint8_t>& paylo
     msg.header.length = static_cast<uint32_t>(payload.size());
     msg.header.type = type;
     msg.data = payload;
+    
     std::lock_guard<std::mutex> lock(writeMutex_);
     writeQueue_.push_back(msg);
-    if (!writing_) writeNext();
+    
+    // Post to IO thread — never call writeNext() directly from file thread
+    if (!writing_) {
+        writing_ = true;
+        boost::asio::post(ioContext_, [this]() { writeNext(); });
+    }
 }
 
 void ClientCore::sendMessage(MessageType type, const std::string& payload) {
@@ -558,17 +564,28 @@ void ClientCore::sendMessage(MessageType type, const std::string& payload) {
 }
 
 void ClientCore::writeNext() {
+    // Always runs on IO thread via boost::asio::post
+    std::lock_guard<std::mutex> lock(writeMutex_);
+    
     if (writeQueue_.empty()) { writing_ = false; return; }
-    writing_ = true;
+    
     OutgoingMessage& msg = writeQueue_.front();
     std::vector<boost::asio::const_buffer> buffers;
     buffers.push_back(boost::asio::buffer(&msg.header, sizeof(MessageHeader)));
     buffers.push_back(boost::asio::buffer(msg.data));
+    
     boost::asio::async_write(socket_, buffers,
         [this](const boost::system::error_code& error, std::size_t) {
-            std::lock_guard<std::mutex> lock(writeMutex_);
-            if (!error) { writeQueue_.pop_front(); writeNext(); }
-            else { handleError("write", error); }
+            if (!error) {
+                std::lock_guard<std::mutex> lock(writeMutex_);
+                writeQueue_.pop_front();
+                if (!writeQueue_.empty())
+                    boost::asio::post(ioContext_, [this]() { writeNext(); });
+                else
+                    writing_ = false;
+            } else {
+                handleError("write", error);
+            }
         });
 }
 
