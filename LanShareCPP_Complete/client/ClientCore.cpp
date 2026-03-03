@@ -178,7 +178,7 @@ AESGCM::Key key = AESGCM::deriveKeyFromPassword(
 
             // 3. Send FILE_COMPLETE: toUserID\0filename\0
             {
-                std::vector<uint8_t> done;
+                std::vector<uint8_t> done;git 
                 done.insert(done.end(), toUserID.begin(), toUserID.end());
                 done.push_back(0);
                 done.insert(done.end(), filename.begin(), filename.end());

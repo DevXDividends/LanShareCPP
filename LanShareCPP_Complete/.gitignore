@@ -25,3 +25,7 @@ Release/
 
 # Logs
 *.log
+
+# Database files (user/group data - don't commit these)
+*.db
+*.db-journal
