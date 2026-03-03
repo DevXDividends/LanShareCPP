@@ -434,12 +434,19 @@ bool ChatWindow::isCurrentContactGroup() const
 }
 LanShare::AESGCM::Key ChatWindow::getSharedKey(const QString& contact)
 {
-    QString myID = QString::fromStdString(client_->getUserID());
-    QStringList parts = {myID, contact};
-    parts.sort();  // Sort so A→B and B→A give same key
-    
-    std::string sharedSecret = parts[0].toStdString() + ":" + 
-                               parts[1].toStdString() + ":lanshare-v1";
-    
-    return LanShare::AESGCM::deriveKeyFromPassword(sharedSecret, "lanshare-salt-2024");
+    if (currentIsGroup_) {
+        // Group key: derived from group name only
+        // All members compute the same key since input is identical
+        std::string sharedSecret = "group:" + contact.toStdString() + ":lanshare-v1";
+        return LanShare::AESGCM::deriveKeyFromPassword(sharedSecret, "lanshare-salt-2024");
+    } else {
+        // Private key: derived from both usernames sorted
+        // Sorting ensures A→B and B→A give same key
+        QString myID = QString::fromStdString(client_->getUserID());
+        QStringList parts = {myID, contact};
+        parts.sort();
+        std::string sharedSecret = parts[0].toStdString() + ":" + 
+                                   parts[1].toStdString() + ":lanshare-v1";
+        return LanShare::AESGCM::deriveKeyFromPassword(sharedSecret, "lanshare-salt-2024");
+    }
 }
