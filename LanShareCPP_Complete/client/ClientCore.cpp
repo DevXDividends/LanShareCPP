@@ -179,12 +179,21 @@ void ClientCore::run() {
 }
 
 void ClientCore::startAsync() {
+    workGuard_ = std::make_unique<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>>(
+        boost::asio::make_work_guard(ioContext_)
+    );
+    
     ioThread_ = std::make_unique<std::thread>([this]() {
         ioContext_.run();
     });
 }
 
 void ClientCore::stopAsync() {
+    // ADD: release the guard first so run() knows it can exit
+    if (workGuard_) {
+        workGuard_->reset();
+        workGuard_.reset();
+    }
     if (ioThread_ && ioThread_->joinable()) {
         ioContext_.stop();
         ioThread_->join();
