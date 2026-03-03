@@ -1,22 +1,18 @@
 cmake_minimum_required(VERSION 3.15)
 project(LanShareCPP VERSION 1.0.0 LANGUAGES CXX)
 
-# Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Build type
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-# Find required packages
 find_package(Boost 1.70 REQUIRED COMPONENTS system thread)
 find_package(OpenSSL REQUIRED)
 find_package(Qt6 COMPONENTS Core Widgets Network)
 
-# Qt setup
 if(Qt6_FOUND)
     set(CMAKE_AUTOMOC ON)
     set(CMAKE_AUTOUIC ON)
@@ -26,14 +22,13 @@ else()
     message(STATUS "Qt6 not found - GUI will be skipped")
 endif()
 
-# Include directories
 include_directories(
     ${CMAKE_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OPENSSL_INCLUDE_DIR}
 )
 
-# Common library
+# ── Common library ─────────────────────────────────────────────────────────
 add_library(LanShareCommon STATIC
     common/Protocol.h
     common/AESGCM.h
@@ -43,9 +38,10 @@ add_library(LanShareCommon STATIC
 target_link_libraries(LanShareCommon
     OpenSSL::SSL
     OpenSSL::Crypto
+    stdc++fs
 )
 
-# Server library
+# ── Server library ─────────────────────────────────────────────────────────
 add_library(LanShareServer STATIC
     server/ServerCore.h
     server/ServerCore.cpp
@@ -65,7 +61,7 @@ target_link_libraries(LanShareServer
     Boost::thread
 )
 
-# Client library
+# ── Client library ─────────────────────────────────────────────────────────
 add_library(LanShareClient STATIC
     client/ClientCore.h
     client/ClientCore.cpp
@@ -75,9 +71,10 @@ target_link_libraries(LanShareClient
     LanShareCommon
     Boost::system
     Boost::thread
+    stdc++fs
 )
 
-# Server executable
+# ── Server executable ──────────────────────────────────────────────────────
 add_executable(lanshare_server
     server/main.cpp
 )
@@ -89,7 +86,7 @@ target_link_libraries(lanshare_server
     Boost::thread
 )
 
-# Console client executable
+# ── Console client executable ──────────────────────────────────────────────
 add_executable(lanshare_client
     client/main.cpp
 )
@@ -101,7 +98,7 @@ target_link_libraries(lanshare_client
     Boost::thread
 )
 
-# GUI client (only if Qt6 is found)
+# ── GUI client ─────────────────────────────────────────────────────────────
 if(Qt6_FOUND)
     add_executable(lanshare_gui WIN32
         ui/main.cpp
@@ -125,23 +122,22 @@ if(Qt6_FOUND)
         Qt6::Network
         Boost::system
         Boost::thread
+        stdc++fs
     )
-    
-    # Windows-specific
+
     if(WIN32)
         target_link_libraries(lanshare_gui ws2_32 wsock32)
     endif()
-    
+
     message(STATUS "GUI target: lanshare_gui")
 endif()
 
-# Windows-specific libraries for other targets
+# ── Windows extras ─────────────────────────────────────────────────────────
 if(WIN32)
     target_link_libraries(lanshare_server ws2_32 wsock32)
     target_link_libraries(lanshare_client ws2_32 wsock32)
 endif()
 
-# Print summary
 message(STATUS "")
 message(STATUS "LanShareCPP Build Configuration")
 message(STATUS "================================")
@@ -154,9 +150,9 @@ if(Qt6_FOUND)
 endif()
 message(STATUS "")
 message(STATUS "Targets:")
-message(STATUS "  - lanshare_server (Server)")
-message(STATUS "  - lanshare_client (Console client)")
+message(STATUS "  - lanshare_server")
+message(STATUS "  - lanshare_client")
 if(Qt6_FOUND)
-    message(STATUS "  - lanshare_gui (GUI client)")
+    message(STATUS "  - lanshare_gui")
 endif()
 message(STATUS "")
