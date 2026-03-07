@@ -14,6 +14,7 @@
 #include <vector>
 
 #include "../client/ClientCore.h"
+#include "MessageDB.h"
 
 namespace Ui { class ChatWindow; }
 
@@ -28,6 +29,9 @@ public:
     explicit ChatWindow(LanShare::ClientCore* client, QWidget *parent = nullptr);
     ~ChatWindow();
 
+    // Called on logout — clears DB history
+    void onLogout();
+
 private slots:
     void onSendClicked();
     void onAttachClicked();
@@ -36,7 +40,6 @@ private slots:
     void onJoinGroupClicked();
     void onRefreshUsersClicked();
 
-    // Message callbacks (invoked on UI thread)
     void onMessageReceived(const std::string& from,
                            const std::vector<uint8_t>& encrypted,
                            uint64_t timestamp);
@@ -47,7 +50,6 @@ private slots:
     void onUserListReceived(const std::vector<std::string>& users);
     void onDecryptClicked(MessageBubble* bubble);
 
-    // File transfer callbacks (invoked on UI thread)
     void onFileMetaReceived(const std::string& from,
                             const std::string& filename,
                             uint64_t filesize);
@@ -73,21 +75,33 @@ private:
     bool isCurrentContactGroup() const;
     LanShare::AESGCM::Key getSharedKey(const QString& contact);
 
+    // History & unread
+    void initDatabase();
+    void loadHistoryForContact(const QString& contact);
+    void saveMessageToDB(const QString& contact, const QString& sender,
+                         const QString& content,
+                         const std::vector<uint8_t>& encryptedBlob,
+                         bool isOwn, bool isGroup);
+    void updateContactBadge(const QString& contact);
+    void updateAllBadges();
+    void setContactUnreadLabel(const QString& contact, int count);
+
     Ui::ChatWindow* ui;
     LanShare::ClientCore* client_;
 
     QString currentContact_;
-    bool currentIsGroup_;
+    bool    currentIsGroup_;
 
     QMap<QString, QList<MessageBubble*>> messageHistory_;
     QList<MessageBubble*> currentMessages_;
-
-    // Active file transfer widgets keyed by contact/userID
     QMap<QString, FileTransferWidget*> activeTransfers_;
 
     QWidget*     chatArea_;
     QVBoxLayout* chatLayout_;
     QScrollArea* scrollArea_;
+
+    MessageDB db_;
+    QMap<QString, int> unreadCounts_;
 };
 
 #endif // CHATWINDOW_H
