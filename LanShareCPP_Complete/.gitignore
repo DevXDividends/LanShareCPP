@@ -29,3 +29,5 @@ Release/
 # Database files (user/group data - don't commit these)
 *.db
 *.db-journal
+
+Lan Share Cpp – Secure Lan Messaging System (c++ + Aes-gcm).pdf
