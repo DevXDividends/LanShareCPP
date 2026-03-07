@@ -560,15 +560,16 @@ void ClientCore::sendMessage(MessageType type, const std::vector<uint8_t>& paylo
     msg.header.length = static_cast<uint32_t>(payload.size());
     msg.header.type = type;
     msg.data = payload;
-    
-    std::lock_guard<std::mutex> lock(writeMutex_);
-    writeQueue_.push_back(msg);
-    
-    // Post to IO thread — never call writeNext() directly from file thread
-    if (!writing_) {
-        writing_ = true;
-        boost::asio::post(ioContext_, [this]() { writeNext(); });
+
+    bool needsStart = false;
+    {
+        std::lock_guard<std::mutex> lock(writeMutex_);
+        writeQueue_.push_back(msg);
+        if (!writing_.exchange(true))   // atomically set true, returns old value
+            needsStart = true;
     }
+    if (needsStart)
+        boost::asio::post(ioContext_, [this]() { writeNext(); });
 }
 
 void ClientCore::sendMessage(MessageType type, const std::string& payload) {
@@ -576,18 +577,22 @@ void ClientCore::sendMessage(MessageType type, const std::string& payload) {
 }
 
 void ClientCore::writeNext() {
-    // Always runs on IO thread via boost::asio::post
-    std::lock_guard<std::mutex> lock(writeMutex_);
-    
-    if (writeQueue_.empty()) { writing_ = false; return; }
-    
-    OutgoingMessage& msg = writeQueue_.front();
+    std::unique_lock<std::mutex> lock(writeMutex_);
+    if (writeQueue_.empty()) {
+        writing_ = false;
+        return;
+    }
+
+    // Copy the front message so the buffer stays alive during async_write
+    OutgoingMessage msg = writeQueue_.front();
+    lock.unlock();
+
     std::vector<boost::asio::const_buffer> buffers;
     buffers.push_back(boost::asio::buffer(&msg.header, sizeof(MessageHeader)));
     buffers.push_back(boost::asio::buffer(msg.data));
-    
+
     boost::asio::async_write(socket_, buffers,
-        [this](const boost::system::error_code& error, std::size_t) {
+        [this, msg](const boost::system::error_code& error, std::size_t) {
             if (!error) {
                 std::lock_guard<std::mutex> lock(writeMutex_);
                 writeQueue_.pop_front();
