@@ -362,8 +362,8 @@ void ClientCore::createGroup(const std::string& groupName) {
     sendMessage(MessageType::GROUP_CREATE, groupName);
 }
 
-void ClientCore::joinGroup(const std::string& groupName) {
-    sendMessage(MessageType::GROUP_JOIN, groupName);
+void ClientCore::joinGroup(const std::string& groupName, const std::string& joinCode) {
+    sendMessage(MessageType::GROUP_JOIN, groupName + "|" + joinCode);
 }
 
 void ClientCore::leaveGroup(const std::string& groupName) {
@@ -420,6 +420,8 @@ void ClientCore::setConnectionCallback(ConnectionCallback cb) {
     std::lock_guard<std::mutex> lock(callbackMutex_); connectionCallback_ = cb; }
 void ClientCore::setAuthCallback(AuthCallback cb) {
     std::lock_guard<std::mutex> lock(callbackMutex_); authCallback_ = cb; }
+    void ClientCore::setGroupCodeCallback(GroupCodeCallback cb) {
+    std::lock_guard<std::mutex> lock(callbackMutex_); groupCodeCallback_ = cb; }
 
 // ─────────────────────────────────────────────
 //  IO / ASYNC
@@ -479,6 +481,7 @@ void ClientCore::handleMessage(MessageType type, const std::vector<uint8_t>& pay
         case MessageType::USER_LIST:          handleUserList(payload); break;
         case MessageType::PONG:               handlePong(); break;
         case MessageType::ERROR_MSG:          handleError(payload); break;
+        case MessageType::GROUP_CODE:         handleGroupCode(payload); break;
         default: std::cerr << "Unknown message type\n";
     }
 }
@@ -538,6 +541,15 @@ void ClientCore::handleUserList(const std::vector<uint8_t>& payload) {
 }
 
 void ClientCore::handlePong() {}
+void ClientCore::handleGroupCode(const std::vector<uint8_t>& payload) {
+    std::string data(payload.begin(), payload.end());
+    size_t sep = data.find('|');
+    if (sep == std::string::npos) return;
+    std::string groupName = data.substr(0, sep);
+    std::string code      = data.substr(sep + 1);
+    std::lock_guard<std::mutex> lock(callbackMutex_);
+    if (groupCodeCallback_) groupCodeCallback_(groupName, code);
+}
 
 void ClientCore::handleError(const std::vector<uint8_t>& payload) {
     std::cerr << "Server error: " << std::string(payload.begin(), payload.end()) << "\n";

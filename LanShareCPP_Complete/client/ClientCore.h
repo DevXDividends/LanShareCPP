@@ -28,6 +28,8 @@ namespace LanShare
     using UserListCallback = std::function<void(const std::vector<std::string> &)>;
     using ConnectionCallback = std::function<void(bool, const std::string &)>;
     using AuthCallback = std::function<void(bool, const std::string &, const std::string &)>;
+    using GroupCodeCallback = std::function<void(const std::string &groupName, const std::string &code)>;
+
 
     class ClientCore
     {
@@ -59,8 +61,7 @@ namespace LanShare
 
         // Groups
         void createGroup(const std::string &groupName);
-        void joinGroup(const std::string &groupName);
-        void leaveGroup(const std::string &groupName);
+        void joinGroup(const std::string &groupName, const std::string &joinCode);        void leaveGroup(const std::string &groupName);
         void requestGroupList();
         void requestUserList();
 
@@ -81,6 +82,7 @@ namespace LanShare
         void setUserListCallback(UserListCallback callback);
         void setConnectionCallback(ConnectionCallback callback);
         void setAuthCallback(AuthCallback callback);
+        void setGroupCodeCallback(GroupCodeCallback callback);
 
         void run();
         void startAsync();
@@ -106,7 +108,7 @@ namespace LanShare
         void handleUserList(const std::vector<uint8_t> &payload);
         void handlePong();
         void handleError(const std::vector<uint8_t> &payload);
-
+        void handleGroupCode(const std::vector<uint8_t> &payload);
         // Incoming file assembly buffer
         struct IncomingFile
         {
@@ -160,6 +162,7 @@ namespace LanShare
         UserListCallback userListCallback_;
         ConnectionCallback connectionCallback_;
         AuthCallback authCallback_;
+        GroupCodeCallback groupCodeCallback_;
         std::mutex callbackMutex_;
     };
 

@@ -87,6 +87,17 @@ ChatWindow::ChatWindow(LanShare::ClientCore* client, QWidget *parent)
             onFileError(userID, reason);
         });
     });
+    client_->setGroupCodeCallback([this](const std::string& groupName,
+                                         const std::string& code) {
+        QMetaObject::invokeMethod(this, [this, groupName, code]() {
+            QMessageBox::information(this, "✅ Group Created!",
+                QString("Group: <b>%1</b><br><br>"
+                        "Join Code: <b style='font-size:18px;color:#5865F2'>%2</b><br><br>"
+                        "Share this code verbally with your friends!")
+                .arg(QString::fromStdString(groupName),
+                     QString::fromStdString(code)));
+        });
+    });
 
     // ── Button signals ─────────────────────────────────────────────
     connect(ui->sendButton,        &QPushButton::clicked, this, &ChatWindow::onSendClicked);
@@ -631,17 +642,19 @@ void ChatWindow::onCreateGroupClicked()
 {
     bool ok;
     QString groupName = QInputDialog::getText(this, "Create Group",
-        "Group name (no + or : characters):", QLineEdit::Normal, "", &ok);
+        "Group name (no + or : or | characters):", QLineEdit::Normal, "", &ok);
     if (!ok || groupName.isEmpty()) return;
 
-    if (groupName.contains('+') || groupName.contains(':')) {
+    if (groupName.contains('+') || groupName.contains(':') || groupName.contains('|')) {
         QMessageBox::warning(this, "Invalid Name",
-            "Group name cannot contain '+' or ':' characters.");
+            "Group name cannot contain '+', ':' or '|' characters.");
         return;
     }
 
+    // Server will respond with GROUP_CODE message
     client_->createGroup(groupName.toStdString());
-    QMessageBox::information(this, "Success", "Group created: " + groupName);
+
+    // Show pending message — actual code shown via groupCodeCallback
     ui->contactList->addItem("👥 " + groupName);
 }
 
@@ -650,11 +663,17 @@ void ChatWindow::onJoinGroupClicked()
     bool ok;
     QString groupName = QInputDialog::getText(this, "Join Group",
         "Group name:", QLineEdit::Normal, "", &ok);
-    if (ok && !groupName.isEmpty()) {
-        client_->joinGroup(groupName.toStdString());
-        QMessageBox::information(this, "Success", "Joined group: " + groupName);
-        ui->contactList->addItem("👥 " + groupName);
+    if (!ok || groupName.isEmpty()) return;
+
+    QString joinCode = QInputDialog::getText(this, "Join Group",
+        "Enter join code (e.g. TIGER-42):", QLineEdit::Normal, "", &ok);
+    if (!ok || joinCode.isEmpty()) {
+        QMessageBox::warning(this, "Code Required", "A join code is required.");
+        return;
     }
+
+    client_->joinGroup(groupName.toStdString(), joinCode.toStdString());
+    ui->contactList->addItem("👥 " + groupName);
 }
 
 void ChatWindow::onRefreshUsersClicked() { loadOnlineUsers(); }

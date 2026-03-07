@@ -169,7 +169,10 @@ int main() {
                 std::string groupName;
                 std::cout << "Group name: ";
                 std::getline(std::cin, groupName);
-                client.joinGroup(groupName);
+                std::string joinCode;
+std::cout << "Enter join code: ";
+std::getline(std::cin, joinCode);
+client.joinGroup(groupName, joinCode);
                 break;
             }
             
