@@ -22,9 +22,6 @@
 **LanShareCPP** is a desktop LAN chat application built in C++17 that enables secure, real-time communication between users on the same local network — **no internet connection, no cloud, no third-party servers.**
 
 All messages and file transfers are encrypted end-to-end using **AES-256-GCM**. The application features a cyberpunk-themed Qt6 GUI, support for private and group messaging, chunked encrypted file transfer, and a persistent user registry — making it suitable for closed, offline environments such as labs, offices, or development teams.
-
-This is a group project. The codebase is structured in clearly separated layers so that each team member can work on a specific component independently.
-
 ---
 
 ## ✅ Features
@@ -35,11 +32,7 @@ This is a group project. The codebase is structured in clearly separated layers 
 - 🗄️ **SQLite message history** — session-scoped, wiped on app close or server restart
 - 🔔 **Unread message badges** — red count indicator on contact name
 - 🎨 **Cyberpunk dark theme** — neon cyan, green, magenta on dark background
-- ⌨️ **Enter to send** — Shift+Enter for newline
-- 🔑 **Persistent user registry** — users survive server restarts; chat history does not
 - 🧵 **Thread-safe write queue** — via `boost::asio::post`
-- 🔄 **Clean server restart** — groups and history wiped, users remembered
-
 ---
 
 ## 🗂️ Project Architecture
@@ -215,7 +208,7 @@ Both should print version numbers.
 
 ### Step 5 — Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/LanShareCPP.git
+git clone https://github.com/DevXDividends/LanShareCPP.git
 cd LanShareCPP
 ```
 
@@ -433,4 +426,16 @@ Message history is **not persisted across sessions by design.** Messages are sto
 
 ---
 
+---
+
+## 🤝 Contributing
+
+Contributions are welcome. To contribute:
+
+1. Fork the repository
+2. Create a new branch for your feature or fix
+3. Make your changes and test with at least 2 client instances
+4. Submit a pull request with a clear description of what was changed and why
+
+---
 *LanShareCPP — Secure LAN Messaging*
