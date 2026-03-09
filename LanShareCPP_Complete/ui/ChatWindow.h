@@ -60,7 +60,9 @@ private slots:
     void onFileComplete(const std::string& from, const std::string& filename);
     void onFileSent(const std::string& toUserID, const std::string& filename);
     void onFileError(const std::string& userID, const std::string& reason);
-
+protected:
+    void closeEvent(QCloseEvent* event) override;
+    
 private:
     void setupUI();
     void applyStyles();

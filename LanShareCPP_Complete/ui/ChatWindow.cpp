@@ -15,7 +15,7 @@
 #include <QDir>
 #include <QKeyEvent>
 #include <iostream>
-
+#include <QCloseEvent>
 ChatWindow::ChatWindow(LanShare::ClientCore *client, QWidget *parent)
     : QMainWindow(parent), ui(new Ui::ChatWindow), client_(client), currentIsGroup_(false)
 {
@@ -69,6 +69,14 @@ ChatWindow::ChatWindow(LanShare::ClientCore *client, QWidget *parent)
                                          const std::string &reason)
                                   { QMetaObject::invokeMethod(this, [this, userID, reason]()
                                                               { onFileError(userID, reason); }); });
+    // ── Group code callback ────────────────────────────────────────
+    client_->setGroupCodeCallback([this](const std::string &groupName, const std::string &code)
+                                  { QMetaObject::invokeMethod(this, [this, groupName, code]()
+                                                              {
+        QString msg = QString("Group: %1\nJoin Code: %2\n\nShare this code with others to join.")
+                          .arg(QString::fromStdString(groupName))
+                          .arg(QString::fromStdString(code));
+        QMessageBox::information(this, "✅ Group Created — Join Code", msg); }); });
 
     // ── Server disconnect → wipe local state ─────────────────────
     client_->setConnectionCallback([this](bool connected, const std::string &reason)
@@ -100,7 +108,6 @@ ChatWindow::~ChatWindow() { delete ui; }
 
 void ChatWindow::initDatabase()
 {
-    // Store DB next to the exe
     QString dbPath = QDir::currentPath() + "/messages_" +
                      QString::fromStdString(client_->getUserID()) + ".db";
 
@@ -111,11 +118,9 @@ void ChatWindow::initDatabase()
     else
     {
         qDebug() << "Message DB opened:" << dbPath;
-        // Load unread counts for badge display
         unreadCounts_ = db_.getAllUnreadCounts();
     }
 }
-
 // ── Setup ──────────────────────────────────────────────────────────────────
 
 void ChatWindow::setupUI()
@@ -329,15 +334,14 @@ void ChatWindow::onServerDisconnected()
 
     // Clear in-memory state
     messageHistory_.clear();
-    currentMessages_.clear();
     unreadCounts_.clear();
     currentContact_.clear();
     currentIsGroup_ = false;
 
-    // Clear chat area visually
+    // Clear chat bubbles from view
     clearChat();
 
-    // Remove all groups from sidebar (users stay — they re-appear on refresh)
+    // Remove all groups from sidebar
     for (int i = ui->contactList->count() - 1; i >= 0; i--)
     {
         QListWidgetItem *item = ui->contactList->item(i);
@@ -369,8 +373,8 @@ void ChatWindow::loadOnlineUsers() { client_->requestUserList(); }
 
 void ChatWindow::loadGroups()
 {
-    //ui->contactList->addItem("👥 general");
-    //ui->contactList->addItem("👥 team");
+    // ui->contactList->addItem("👥 general");
+    // ui->contactList->addItem("👥 team");
 }
 
 void ChatWindow::onContactClicked(QListWidgetItem *item)
@@ -395,6 +399,10 @@ void ChatWindow::onContactClicked(QListWidgetItem *item)
 
 void ChatWindow::switchToContact(const QString &contactId, bool isGroup)
 {
+    // ── Save current chat back to history before switching ──
+    if (!currentContact_.isEmpty())
+        messageHistory_[currentContact_] = currentMessages_;
+
     currentContact_ = contactId;
     currentIsGroup_ = isGroup;
 
@@ -413,11 +421,15 @@ void ChatWindow::switchToContact(const QString &contactId, bool isGroup)
         loadHistoryForContact(contactId);
 
     // Display stored bubbles
+    // Display stored bubbles
     if (messageHistory_.contains(contactId))
     {
         currentMessages_ = messageHistory_[contactId];
         for (auto *bubble : currentMessages_)
+        {
+            bubble->show(); // ← ADD THIS
             chatLayout_->insertWidget(chatLayout_->count() - 1, bubble);
+        }
     }
 
     scrollToBottom();
@@ -793,8 +805,8 @@ void ChatWindow::onUserListReceived(const std::vector<std::string> &users)
     groupHeader->setForeground(QColor("#8E9297"));
     ui->contactList->addItem(groupHeader);
 
-    //ui->contactList->addItem("👥 general");
-    //ui->contactList->addItem("👥 team");
+    // ui->contactList->addItem("👥 general");
+    // ui->contactList->addItem("👥 team");
 }
 
 // ── Decrypt ────────────────────────────────────────────────────────────────
@@ -861,20 +873,23 @@ void ChatWindow::onCreateGroupClicked()
     }
 
     client_->createGroup(groupName.toStdString());
-    QMessageBox::information(this, "Success", "Group created: " + groupName);
+    client_->createGroup(groupName.toStdString());
+    ui->contactList->addItem("👥 " + groupName);
     ui->contactList->addItem("👥 " + groupName);
 }
 void ChatWindow::onJoinGroupClicked()
 {
     bool ok;
     QString groupName = QInputDialog::getText(this, "Join Group",
-        "Group name:", QLineEdit::Normal, "", &ok);
-    if (!ok || groupName.isEmpty()) return;
+                                              "Group name:", QLineEdit::Normal, "", &ok);
+    if (!ok || groupName.isEmpty())
+        return;
 
     bool ok2;
     QString joinCode = QInputDialog::getText(this, "Join Group",
-        "Enter join code (e.g. TIGER-42):", QLineEdit::Normal, "", &ok2);
-    if (!ok2 || joinCode.trimmed().isEmpty()) return;
+                                             "Enter join code (e.g. TIGER-42):", QLineEdit::Normal, "", &ok2);
+    if (!ok2 || joinCode.trimmed().isEmpty())
+        return;
 
     client_->joinGroup(groupName.trimmed().toStdString(),
                        joinCode.trimmed().toStdString());
@@ -922,4 +937,10 @@ LanShare::AESGCM::Key ChatWindow::getSharedKey(const QString &contact)
                                    parts[1].toStdString() + ":lanshare-v1";
         return LanShare::AESGCM::deriveKeyFromPassword(sharedSecret, "lanshare-salt-2024");
     }
+}
+void ChatWindow::closeEvent(QCloseEvent *event)
+{
+    // Wipe all message history when app closes
+    db_.clearAll();
+    QMainWindow::closeEvent(event);
 }
