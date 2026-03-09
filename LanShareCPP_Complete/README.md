@@ -1,416 +1,336 @@
-# LanShareCPP - Secure LAN Communication & Data Sharing
+# 🛡️ LanShareCPP
 
-A professional-grade, secure LAN messaging and file sharing desktop application built with C++, featuring AES-256-GCM encryption, real-time messaging, and group chat capabilities.
+> A secure, encrypted LAN messaging and file-sharing application written in C++17.  
+> Private chats, group chats, file transfers — all AES-256-GCM encrypted, all local network.
 
-## 🌟 Features
-
-### Core Features
-- ✅ **End-to-End Encryption**: AES-256-GCM authenticated encryption
-- ✅ **Private Messaging**: Secure one-on-one encrypted chat
-- ✅ **Group Messaging**: Create and manage group conversations
-- ✅ **File Sharing**: Send encrypted files and images
-- ✅ **Folder Transfer**: Automatic compression and encrypted folder sharing
-- ✅ **User Authentication**: Secure registration and login system
-- ✅ **Cross-Platform**: Works on Windows and Linux
-
-### Security Highlights
-- Industry-standard AES-256-GCM cipher
-- 256-bit encryption keys
-- 96-bit random nonce per message
-- 128-bit authentication tags
-- Server never decrypts data
-- User-controlled decryption (explicit decrypt action)
-- Password hashing with salt
-
-### Architecture
-- **Hybrid Client-Server Model**: Coordinator-based architecture
-- **Asynchronous I/O**: Built on Boost.Asio for scalable networking
-- **Professional UI**: Qt 6 framework for native performance
-- **Modular Design**: Clean separation of concerns
-
-## 📋 Requirements
-
-### Build Dependencies
-- **C++ Compiler**: GCC 8+, Clang 10+, or MSVC 2019+
-- **CMake**: 3.15 or higher
-- **Boost**: 1.70 or higher (system, thread components)
-- **OpenSSL**: 1.1.1 or higher
-- **Qt 6**: 6.2 or higher (Core, Widgets, Network)
-
-### Runtime Requirements
-- **Operating System**: Windows 10/11 or Linux (Ubuntu 20.04+, Fedora, etc.)
-- **Network**: Local Area Network (LAN) connection
-- **RAM**: Minimum 256MB (recommended 512MB+)
-
-## 🚀 Quick Start
-
-### Building from Source
-
-#### Linux (Ubuntu/Debian)
-```bash
-# Install dependencies
-sudo apt update
-sudo apt install build-essential cmake git
-sudo apt install libboost-all-dev libssl-dev
-sudo apt install qt6-base-dev qt6-tools-dev
-
-# Clone and build
-git clone https://github.com/yourusername/LanShareCPP.git
-cd LanShareCPP
-mkdir build && cd build
-cmake ..
-make -j$(nproc)
-```
-
-#### Linux (Fedora/RHEL)
-```bash
-# Install dependencies
-sudo dnf install gcc-c++ cmake git
-sudo dnf install boost-devel openssl-devel
-sudo dnf install qt6-qtbase-devel
-
-# Build
-mkdir build && cd build
-cmake ..
-make -j$(nproc)
-```
-
-#### Windows (MSVC)
-```powershell
-# Install dependencies via vcpkg
-vcpkg install boost-asio boost-system openssl qt6
-
-# Build
-mkdir build
-cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=[vcpkg root]/scripts/buildsystems/vcpkg.cmake
-cmake --build . --config Release
-```
-
-### Running the Application
-
-#### 1. Start the Server
-```bash
-# Default port: 5555
-./lanshare_server
-
-# Custom port
-./lanshare_server --port 6000
-```
-
-#### 2. Launch Client GUI
-```bash
-./lanshare_gui
-```
-
-#### 3. Register and Login
-- First-time users: Click "Register" and create an account
-- Existing users: Enter credentials and click "Login"
-- Server IP: Enter the server's LAN IP address (e.g., 192.168.1.100)
-
-## 📖 User Guide
-
-### User Identity System
-
-Each user is assigned a unique UserID in the format:
-```
-LS-<USERNAME>-<HASH>
-Example: LS-Ronak-A9D2
-```
-
-This format provides:
-- Human-readable identification
-- Unique user identification
-- Easy routing and debugging
-
-### Sending Messages
-
-#### Private Messages
-1. Select a user from the online users list
-2. Type your message
-3. Click "Send" - message is automatically encrypted
-4. Recipient sees encrypted message by default
-5. Click "Decrypt" to view plaintext
-
-#### Group Messages
-1. Create or join a group
-2. Select the group from the list
-3. Type and send messages
-4. All group members receive encrypted messages
-
-### File Sharing
-
-#### Sending Files
-1. Click "Send File" button
-2. Select file(s) from file browser
-3. File is encrypted and sent in chunks
-4. Progress bar shows transfer status
-
-#### Sending Folders
-1. Click "Send Folder" button
-2. Select folder
-3. Folder is compressed to ZIP
-4. ZIP is encrypted and transferred
-5. Auto-extracts on receiver side
-
-#### Receiving Files
-- Incoming files appear in notification
-- Accept or decline transfer
-- Files save to configured directory
-- Auto-decryption on save
-
-### Group Management
-
-#### Creating a Group
-```cpp
-// In UI or via client
-createGroup("ProjectTeam");
-```
-
-#### Joining a Group
-```cpp
-joinGroup("ProjectTeam");
-```
-
-#### Leaving a Group
-```cpp
-leaveGroup("ProjectTeam");
-```
-
-## 🔧 Configuration
-
-### Server Configuration
-
-Default settings in `server_config.ini`:
-```ini
-[Server]
-Port=5555
-MaxConnections=100
-LogLevel=INFO
-
-[Security]
-EnableEncryption=true
-RequireAuth=true
-
-[Storage]
-UserDatabase=users.db
-GroupDatabase=groups.db
-```
-
-### Client Configuration
-
-Default settings in `client_config.ini`:
-```ini
-[Client]
-ServerIP=127.0.0.1
-ServerPort=5555
-AutoConnect=false
-
-[Files]
-SaveDirectory=./downloads
-MaxFileSize=104857600  # 100MB
-
-[UI]
-Theme=Light
-ShowEncryptedByDefault=true
-```
-
-## 🏗️ Architecture Overview
-
-### Directory Structure
-```
-LanShareCPP/
-├── server/              # Server-side components
-│   ├── ServerCore.cpp   # Main server logic
-│   ├── ClientSession.cpp# Client connection handler
-│   ├── AuthManager.cpp  # Authentication system
-│   ├── GroupManager.cpp # Group management
-│   └── MessageRouter.cpp# Message routing
-├── client/              # Client-side components
-│   ├── ClientCore.cpp   # Client networking
-│   ├── CryptoManager.cpp# Encryption wrapper
-│   ├── FileSender.cpp   # File upload
-│   └── FileReceiver.cpp # File download
-├── common/              # Shared code
-│   ├── Protocol.h       # Protocol definitions
-│   └── AESGCM.h        # Crypto interface
-├── ui/                  # Qt GUI
-│   ├── LoginWindow.ui   # Login interface
-│   └── ChatWindow.ui    # Chat interface
-└── docs/               # Documentation
-```
-
-### Protocol Specification
-
-#### Message Frame
-```
-[4 bytes: length][1 byte: type][variable: payload]
-```
-
-#### Message Types
-- **Authentication**: REGISTER, LOGIN, SUCCESS, FAIL
-- **Messaging**: MSG_PRIVATE, MSG_GROUP
-- **File Transfer**: FILE_META, FILE_CHUNK, FILE_COMPLETE
-- **Group Management**: GROUP_CREATE, GROUP_JOIN, GROUP_LEAVE
-- **System**: PING, PONG, ERROR, DISCONNECT
-
-### Encryption Flow
-
-```
-┌─────────────┐                           ┌─────────────┐
-│   Sender    │                           │  Receiver   │
-└─────────────┘                           └─────────────┘
-      │                                          │
-      │ 1. Plaintext message                    │
-      ▼                                          │
-┌──────────────┐                                │
-│  AES-256-GCM │                                │
-│  Encryption  │                                │
-└──────────────┘                                │
-      │                                          │
-      │ 2. Encrypted blob [nonce+cipher+tag]   │
-      ├──────────────────────────────────────►  │
-      │         via Server (no decrypt)         │
-      │                                          ▼
-      │                                    ┌──────────────┐
-      │                                    │ Store        │
-      │                                    │ Encrypted    │
-      │                                    └──────────────┘
-      │                                          │
-      │                                          │ User clicks "Decrypt"
-      │                                          ▼
-      │                                    ┌──────────────┐
-      │                                    │  AES-256-GCM │
-      │                                    │  Decryption  │
-      │                                    └──────────────┘
-      │                                          │
-      │                                          ▼
-      │                                    Plaintext display
-```
-
-## 🔐 Security Considerations
-
-### Best Practices
-1. **Strong Passwords**: Use passwords with 12+ characters
-2. **Secure Key Storage**: Keys derived from passwords
-3. **Network Security**: Use only on trusted LANs
-4. **Update Regularly**: Keep OpenSSL and dependencies updated
-5. **Audit Logs**: Review server logs periodically
-
-### Known Limitations
-- No forward secrecy (static keys per session)
-- No key exchange protocol (manual key management)
-- Server can see metadata (sender, receiver, timestamps)
-- Replay attack mitigation relies on application-level timestamps
-
-### Future Enhancements
-- [ ] Implement Diffie-Hellman key exchange
-- [ ] Add Perfect Forward Secrecy (PFS)
-- [ ] Digital signatures for message authentication
-- [ ] Certificate-based authentication
-- [ ] End-to-end encrypted voice/video calls
-
-## 🧪 Testing
-
-### Unit Tests
-```bash
-cd build
-cmake .. -DBUILD_TESTS=ON
-make
-ctest --verbose
-```
-
-### Integration Testing
-```bash
-# Terminal 1: Start server
-./lanshare_server
-
-# Terminal 2: Start client 1
-./lanshare_client
-
-# Terminal 3: Start client 2
-./lanshare_client
-
-# Test private messaging, groups, file transfer
-```
-
-## 📊 Performance
-
-### Benchmarks
-- **Message Throughput**: ~10,000 messages/second (LAN)
-- **File Transfer Speed**: Limited by network (typically 100+ MB/s on gigabit LAN)
-- **Encryption Overhead**: ~5-10% (AES-NI hardware acceleration)
-- **Max Concurrent Clients**: 100+ (tested)
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-#### Connection Refused
-```
-Error: Unable to connect to server
-Solution: Ensure server is running and firewall allows port 5555
-```
-
-#### Decryption Failed
-```
-Error: Authentication tag verification failed
-Solution: Ensure both users use the same encryption key
-```
-
-#### File Transfer Timeout
-```
-Error: File transfer incomplete
-Solution: Check network stability, increase timeout in config
-```
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Contributors
-
-- **Project Lead**: [Your Name]
-- **Architecture**: Based on academic project execution plan
-- **Security Review**: Community contributors welcome
-
-## 🙏 Acknowledgments
-
-- OpenSSL for cryptographic primitives
-- Boost.Asio for networking
-- Qt Framework for GUI
-- Academic advisors and reviewers
-
-## 📞 Support
-
-- **Issues**: GitHub Issues tracker
-- **Discussions**: GitHub Discussions
-- **Documentation**: [Wiki](https://github.com/yourusername/LanShareCPP/wiki)
-- **Email**: support@lanshare.example.com
-
-## 🗺️ Roadmap
-
-### Version 1.0 (Current)
-- [x] Core messaging functionality
-- [x] AES-256-GCM encryption
-- [x] File and folder sharing
-- [x] Group management
-- [x] Qt GUI
-
-### Version 1.1 (Planned)
-- [ ] Key exchange protocol
-- [ ] Message history persistence
-- [ ] User avatars
-- [ ] Emoji support
-- [ ] Dark mode theme
-
-### Version 2.0 (Future)
-- [ ] Voice/video calls
-- [ ] Screen sharing
-- [ ] Mobile apps (Android/iOS)
-- [ ] WebRTC integration
-- [ ] Cloud sync option
+![Platform](https://img.shields.io/badge/platform-Windows-blue)
+![Language](https://img.shields.io/badge/language-C%2B%2B17-orange)
+![Qt](https://img.shields.io/badge/GUI-Qt6-green)
 
 ---
 
-**Built with ❤️ for secure LAN communication**
+## 📸 What It Does
+
+LanShareCPP lets multiple people on the **same LAN (WiFi/Ethernet)** chat and share files securely — no internet needed, no cloud, no third party.
+
+- ✅ Register / Login with usernames and passwords
+- ✅ Private 1-on-1 encrypted messages
+- ✅ Group chats with join codes (e.g. `TIGER-42`)
+- ✅ File transfer (any format, any size, auto-saved to Downloads)
+- ✅ Message history persisted in SQLite (per user, cleared on logout)
+- ✅ Unread message badge (red count on contact name)
+- ✅ Progress bars for file transfers
+- ✅ Discord-dark themed GUI
+
+---
+
+## 🏗️ Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────┐
+│                   LAN Network                       │
+│                                                     │
+│  ┌──────────────┐        ┌──────────────────────┐   │
+│  │  GUI Client  │◄──────►│   lanshare_server    │   │
+│  │ (Qt6 Window) │        │   (port 5555)        │   │
+│  └──────────────┘        │                      │   │
+│                          │  AuthManager         │   │
+│  ┌──────────────┐        │  GroupManager        │   │
+│  │Console Client│◄──────►│  MessageRouter       │   │
+│  │  (terminal)  │        │  ClientSession(s)    │   │
+│  └──────────────┘        └──────────────────────┘   │
+└─────────────────────────────────────────────────────┘
+```
+
+### Components
+
+| Binary | Description |
+|---|---|
+| `lanshare_server.exe` | Central relay server. Handles auth, routing, groups. Run once on one machine. |
+| `lanshare_gui.exe` | Qt6 GUI client. The main app your friends will use. |
+| `lanshare_client.exe` | Console client. For testing or headless use. |
+
+---
+
+## 🔐 Security Model
+
+All messages and file chunks are encrypted with **AES-256-GCM** before leaving the sender's machine.
+
+### Key Derivation
+Keys are **never transmitted** over the network. Both parties independently derive the same key:
+
+```
+Private chat key  = HKDF("userA:userB:lanshare-v1", salt)   // usernames sorted alphabetically
+Group chat key    = HKDF("group:groupName:lanshare-v1", salt)
+File transfer key = HKDF("file:userA:userB:lanshare-v1", salt)
+```
+
+### Why AES-GCM?
+GCM (Galois/Counter Mode) provides **authenticated encryption** — the tag proves the message wasn't tampered with in transit, not just that it's encrypted.
+
+### What the server sees
+The server routes encrypted blobs. It **cannot** read message content or file data. It only sees: sender ID, recipient ID, message type, and ciphertext.
+
+---
+
+## 📁 Project Structure
+
+```
+LanShareCPP_Complete/
+│
+├── common/
+│   ├── Protocol.h          ← Message types, header format, constants
+│   └── AESGCM.h / .cpp     ← AES-256-GCM encrypt/decrypt + key derivation
+│
+├── server/
+│   ├── main.cpp            ← Server entry point
+│   ├── ServerCore.h/.cpp   ← Accepts connections, owns all managers
+│   ├── ClientSession.h/.cpp← Per-client TCP session (one per connected user)
+│   ├── AuthManager.h/.cpp  ← Register/login, bcrypt password hashing
+│   ├── GroupManager.h/.cpp ← Group CRUD, join codes, membership
+│   └── MessageRouter.h/.cpp← Routes messages/files between sessions
+│
+├── client/
+│   ├── main.cpp            ← Console client entry point
+│   ├── ClientCore.h/.cpp   ← TCP connection, async I/O, all callbacks
+│   └── (shared with ui/)
+│
+├── ui/
+│   ├── main.cpp            ← GUI entry point
+│   ├── LoginWindow.h/.cpp  ← Login/register screen
+│   ├── ChatWindow.h/.cpp   ← Main chat UI
+│   ├── MessageBubble.h/.cpp← Individual chat bubble widget
+│   ├── FileTransferWidget.h/.cpp ← File send/receive progress widget
+│   ├── MessageDB.h/.cpp    ← SQLite message history
+│   └── ChatWindow.ui       ← Qt Designer UI layout
+│
+└── CMakeLists.txt          ← Build configuration
+```
+
+---
+
+## 🚀 Building from Source
+
+> **Platform:** Windows 10/11 (64-bit). All steps below are for Windows.  
+> Estimated setup time: ~30–45 minutes on first install.
+
+---
+
+### Step 1 — Install MSYS2 (compiler + package manager)
+
+MSYS2 gives you GCC, MinGW, and `pacman` (a Linux-style package manager for Windows).
+
+1. Download the installer from **https://www.msys2.org/**
+2. Run it, install to `C:\msys64` (default)
+3. When it finishes, open **MSYS2 MINGW64** from the Start Menu
+4. Update the package database:
+
+```bash
+pacman -Syu
+# It may close the window — reopen MSYS2 MINGW64 and run again:
+pacman -Su
+```
+
+---
+
+### Step 2 — Install all dependencies via pacman
+
+Open **MSYS2 MINGW64** and run this single command to install everything:
+
+```bash
+pacman -S --needed \
+  mingw-w64-x86_64-gcc \
+  mingw-w64-x86_64-cmake \
+  mingw-w64-x86_64-ninja \
+  mingw-w64-x86_64-boost \
+  mingw-w64-x86_64-openssl \
+  mingw-w64-x86_64-sqlite3 \
+  git
+```
+
+This installs:
+| Package | What it provides |
+|---|---|
+| `gcc` | C++17 compiler (GCC 13+) |
+| `cmake` | Build system |
+| `ninja` | Fast build tool (used by cmake) |
+| `boost` | Boost.Asio (networking), Boost.Thread |
+| `openssl` | AES-256-GCM encryption |
+| `sqlite3` | Local message history database |
+| `git` | To clone the repo |
+
+---
+
+### Step 3 — Install Qt6 (for the GUI)
+
+Qt is too large for pacman — install it via the official Qt installer.
+
+1. Download **Qt Online Installer** from **https://www.qt.io/download-qt-installer**
+2. Create a free Qt account if prompted
+3. In the installer, select:
+   - **Qt 6.10.1** (or latest 6.x)
+   - Under it, check: ✅ **MinGW 64-bit**
+   - Also check: ✅ **MinGW 13.x toolchain** (under Tools)
+4. Install to `C:\Qt` (default)
+
+> **Important:** Make sure you pick the **MinGW** variant of Qt6, not MSVC. The project uses the MinGW compiler from MSYS2.
+
+---
+
+### Step 4 — Add MinGW to your PATH
+
+So Windows can find `g++`, `cmake`, etc. from the command prompt:
+
+1. Open **Start → Edit the system environment variables**
+2. Click **Environment Variables**
+3. Under **System variables**, find `Path` → click **Edit**
+4. Click **New** and add these two paths:
+   ```
+   C:\msys64\mingw64\bin
+   C:\Qt\6.10.1\mingw_64\bin
+   ```
+5. Click OK on all dialogs
+6. **Restart any open terminals** for the change to take effect
+
+Verify it worked — open a new **Command Prompt** and run:
+```cmd
+g++ --version
+cmake --version
+```
+Both should print version numbers.
+
+---
+
+### Step 5 — Clone the repository
+
+Open **Command Prompt** (or Git Bash):
+
+```bash
+git clone https://github.com/YOUR_USERNAME/LanShareCPP.git
+cd LanShareCPP
+```
+
+---
+
+### Step 6 — Configure and build
+
+```bash
+# Create build directory
+mkdir build
+cd build
+
+# Configure — tell CMake where Qt6 is
+cmake .. -G "MinGW Makefiles" ^
+  -DCMAKE_BUILD_TYPE=Release ^
+  -DCMAKE_PREFIX_PATH="C:/Qt/6.10.1/mingw_64"
+
+# Build everything (server + GUI + console client)
+cmake --build . --parallel
+```
+
+> **Note:** Replace `C:/Qt/6.10.1/mingw_64` with your actual Qt install path if different. Check `C:\Qt\` for the version folder.
+
+If the build succeeds you'll see:
+```
+[100%] Linking CXX executable lanshare_server.exe
+[100%] Linking CXX executable lanshare_gui.exe
+[100%] Linking CXX executable lanshare_client.exe
+```
+
+---
+
+### Step 7 — Copy Qt DLLs (first run only)
+
+Qt apps need their DLLs next to the `.exe`. Run this from inside the `build/` folder:
+
+```bash
+C:\Qt\6.10.1\mingw_64\bin\windeployqt.exe lanshare_gui.exe
+```
+
+This copies all required Qt `.dll` files automatically.
+
+---
+
+### Troubleshooting
+
+| Error | Fix |
+|---|---|
+| `cmake: command not found` | Add `C:\msys64\mingw64\bin` to PATH (Step 4) |
+| `Could not find Qt6` | Check `-DCMAKE_PREFIX_PATH` points to your Qt mingw_64 folder |
+| `Cannot find -lsqlite3` | Run `pacman -S mingw-w64-x86_64-sqlite3` in MSYS2 |
+| `Cannot find OpenSSL` | Run `pacman -S mingw-w64-x86_64-openssl` in MSYS2 |
+| `DLL not found` when launching GUI | Run `windeployqt.exe lanshare_gui.exe` (Step 7) |
+| Build fails after changing files | Delete `build/` folder completely and redo from Step 6 |
+
+---
+
+## 🖥️ Running the App
+
+### Step 1 — Start the Server (one person does this)
+
+```bash
+cd build
+./lanshare_server.exe
+# Server started on port 5555
+```
+
+Find the server machine's IP:
+```bash
+ipconfig   # look for IPv4 Address under your WiFi adapter
+# e.g. 192.168.1.5
+```
+
+### Step 2 — Launch the GUI Client (everyone else)
+
+```bash
+./lanshare_gui.exe
+```
+
+- Enter the server's IP address
+- Register a new account or login
+- Start chatting!
+
+### Step 3 — Create/Join Groups
+
+- Click **Create Group** → enter a group name → a join code like `TIGER-42` will appear
+- Share the code verbally with friends
+- Friends click **Join Group** → enter group name + code
+
+---
+
+## 🔌 Protocol Reference
+
+See [`docs/PROTOCOL.md`](docs/PROTOCOL.md) for the full binary protocol spec.
+
+Quick overview — every message is a 5-byte header + payload:
+
+```
+┌──────────────────────┬───────────┐
+│  length (4 bytes LE) │ type (1B) │  ← MessageHeader
+├──────────────────────┴───────────┤
+│         payload (N bytes)        │
+└──────────────────────────────────┘
+```
+
+---
+
+## 📚 Module Documentation
+
+| Doc | Contents |
+|---|---|
+| [`docs/PROTOCOL.md`](docs/PROTOCOL.md) | Binary protocol, all message types, payload formats |
+| [`docs/ENCRYPTION.md`](docs/ENCRYPTION.md) | AES-GCM deep dive, key derivation, security analysis |
+| [`docs/SERVER.md`](docs/SERVER.md) | Server architecture, AuthManager, GroupManager, MessageRouter |
+| [`docs/CLIENT.md`](docs/CLIENT.md) | ClientCore internals, async I/O, write queue, callbacks |
+| [`docs/GUI.md`](docs/GUI.md) | UI architecture, ChatWindow, SQLite history, file transfer UI |
+| [`docs/FILE_TRANSFER.md`](docs/FILE_TRANSFER.md) | Chunked transfer design, encryption, corruption prevention |
+
+
+## 🤝 Contributing
+
+Pull requests welcome! If you find a bug, open an issue with:
+1. What you did
+2. What you expected
+3. What actually happened
+4. Server + client console output
+---
