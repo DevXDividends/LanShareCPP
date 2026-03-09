@@ -4,6 +4,7 @@
 #include "GroupManager.h"
 #include "MessageRouter.h"
 #include <iostream>
+#include <cstdio>
 
 namespace LanShare {
 
@@ -17,11 +18,14 @@ ServerCore::ServerCore(unsigned short port)
     groupManager_ = std::make_unique<GroupManager>();
     messageRouter_ = std::make_unique<MessageRouter>(*this);
     
-    // Load persisted data
+    // Wipe groups on every server start — fresh session every time
+    std::remove("groups.db");
+    std::cout << "Groups cleared (fresh session)\n";
+
+    // Load only users — accounts persist across restarts
     try {
         authManager_->loadFromFile("users.db");
-        groupManager_->loadFromFile("groups.db");
-        std::cout << "Loaded user and group databases\n";
+        std::cout << "Loaded user database\n";
     } catch (const std::exception& e) {
         std::cout << "Note: " << e.what() << " (this is OK for first run)\n";
     }
@@ -44,11 +48,10 @@ void ServerCore::stop() {
     std::cout << "Stopping server...\n";
     running_ = false;
     
-    // Save data
+    // Save only users — groups are intentionally not saved
     try {
         authManager_->saveToFile("users.db");
-        groupManager_->saveToFile("groups.db");
-        std::cout << "Saved user and group databases\n";
+        std::cout << "Saved user database\n";
     } catch (const std::exception& e) {
         std::cerr << "Error saving data: " << e.what() << "\n";
     }

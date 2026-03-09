@@ -2,6 +2,7 @@
 #define CHATWINDOW_H
 
 #include <QMainWindow>
+#include <QKeyEvent>
 #include <QListWidget>
 #include <QTextEdit>
 #include <QLineEdit>
@@ -31,9 +32,11 @@ public:
 
     // Called on logout — clears DB history
     void onLogout();
+    void onServerDisconnected();
 
 private slots:
     void onSendClicked();
+    bool eventFilter(QObject* obj, QEvent* event) override;
     void onAttachClicked();
     void onContactClicked(QListWidgetItem* item);
     void onCreateGroupClicked();

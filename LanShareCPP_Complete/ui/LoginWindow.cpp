@@ -22,7 +22,7 @@ LoginWindow::LoginWindow(QWidget *parent)
     ui->loginButton->setMinimumHeight(50);
     ui->registerButton->setMinimumHeight(50);
     
-    setWindowTitle("🎮 LanShare - Login");
+    setWindowTitle("⬡ LanShare - Login");
     setFixedSize(450, 600);
     
     applyStyles();
@@ -67,57 +67,111 @@ void LoginWindow::applyStyles()
 {
     QString mainStyle = R"(
         QWidget {
-            background-color: #36393F;
-            color: #DCDDDE;
-            font-family: 'Segoe UI', Arial;
+            background-color: #0a0e1a;
+            color: #c0f0e0;
+            font-family: 'Courier New', monospace;
         }
+
+        /* ── Title ── */
         QLabel#titleLabel {
-            color: #5865F2;
-            font-size: 28px;
+            color: #00ffe7;
+            font-size: 30px;
             font-weight: bold;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 4px;
         }
         QLabel#subtitleLabel {
-            color: #B9BBBE;
-            font-size: 14px;
+            color: #00ffe780;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-family: 'Courier New', monospace;
         }
+
+        /* ── Input fields ── */
         QLineEdit {
-            background-color: #40444B;
-            border: 2px solid #202225;
-            border-radius: 5px;
-            padding: 10px;
-            color: #DCDDDE;
-            font-size: 14px;
+            background-color: #0d1526;
+            border: 1px solid #00ffe740;
+            border-radius: 4px;
+            padding: 10px 14px;
+            color: #00ffe7;
+            font-size: 13px;
+            font-family: 'Courier New', monospace;
+            selection-background-color: #00ffe740;
         }
         QLineEdit:focus {
-            border: 2px solid #5865F2;
+            border: 1px solid #00ffe7;
+            background-color: #0f1a2e;
         }
+        QLineEdit:hover {
+            border: 1px solid #00ffe7a0;
+        }
+
+        /* ── Login button (cyan) ── */
         QPushButton {
-            background-color: #5865F2;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            background-color: transparent;
+            color: #00ffe7;
+            border: 1px solid #00ffe7;
+            border-radius: 4px;
             padding: 12px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
         }
-        QPushButton:hover { background-color: #4752C4; }
-        QPushButton:pressed { background-color: #3C45A5; }
-        QPushButton:disabled { background-color: #4f545c; color: #72767d; }
-        QPushButton#registerButton { background-color: #3BA55D; }
-        QPushButton#registerButton:hover { background-color: #2D7D46; }
-        QPushButton#registerButton:disabled { background-color: #4f545c; color: #72767d; }
-        QLabel#errorLabel { color: #ED4245; font-size: 12px; }
-        QLabel#successLabel { color: #57F287; font-size: 12px; }
-        QCheckBox { color: #B9BBBE; }
+        QPushButton:hover {
+            background-color: #00ffe720;
+            color: #ffffff;
+            border: 1px solid #00ffe7;
+        }
+        QPushButton:pressed {
+            background-color: #00ffe740;
+        }
+        QPushButton:disabled {
+            border: 1px solid #1a3a3a;
+            color: #1a3a3a;
+        }
+
+        /* ── Register button (green) ── */
+        QPushButton#registerButton {
+            color: #39ff14;
+            border: 1px solid #39ff14;
+        }
+        QPushButton#registerButton:hover {
+            background-color: #39ff1420;
+            color: #ffffff;
+            border: 1px solid #39ff14;
+        }
+        QPushButton#registerButton:pressed {
+            background-color: #39ff1440;
+        }
+        QPushButton#registerButton:disabled {
+            border: 1px solid #1a3a1a;
+            color: #1a3a1a;
+        }
+
+        /* ── Status labels ── */
+        QLabel#errorLabel   { color: #ff3a6e; font-size: 12px; letter-spacing: 1px; }
+        QLabel#successLabel { color: #39ff14; font-size: 12px; letter-spacing: 1px; }
+        QLabel#statusLabel  { color: #00ffe780; font-size: 12px; letter-spacing: 1px; }
+
+        /* ── Form field labels ── */
+        QLabel {
+            color: #00ffe7a0;
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-family: 'Courier New', monospace;
+        }
+
+        QCheckBox { color: #00ffe780; }
         QCheckBox::indicator {
-            width: 18px; height: 18px;
-            border-radius: 3px;
-            border: 2px solid #202225;
-            background-color: #40444B;
+            width: 16px; height: 16px;
+            border-radius: 2px;
+            border: 1px solid #00ffe740;
+            background-color: #0d1526;
         }
         QCheckBox::indicator:checked {
-            background-color: #5865F2;
-            border-color: #5865F2;
+            background-color: #00ffe740;
+            border-color: #00ffe7;
         }
     )";
     setStyleSheet(mainStyle);
