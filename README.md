@@ -21,7 +21,9 @@
 
 **LanShareCPP** is a desktop LAN chat application built in C++17 that enables secure, real-time communication between users on the same local network — **no internet connection, no cloud, no third-party servers.**
 
-All messages and file transfers are encrypted end-to-end using **AES-256-GCM**. The application features a cyberpunk-themed Qt6 GUI, support for private and group messaging, chunked encrypted file transfer, and a persistent user registry — making it suitable for closed, offline environments such as labs, offices, or development teams.
+All messages and file transfers are encrypted end-to-end using **AES-256-GCM**.
+
+The application features a cyberpunk-themed **Qt6 GUI**, private and group messaging, chunked encrypted file transfer, and a persistent user registry — making it suitable for closed offline environments such as labs, offices, or development teams.
 ---
 
 ## ✅ Features
@@ -161,7 +163,7 @@ pacman -S --needed \
   mingw-w64-x86_64-boost \
   mingw-w64-x86_64-openssl \
   mingw-w64-x86_64-sqlite3 \
-  git
+  git  
 ```
 
 | Package | What it provides |
@@ -254,19 +256,22 @@ cd build
 The server listens on port `5555`. On startup, it wipes any existing group data and loads the user registry from `users.db`.
 
 ### Step 2 — Launch GUI clients
+Open new terminal 
 ```bash
+cd build 
 ./lanshare_gui.exe
 ```
 Launch one instance per user. Each instance connects to `localhost:5555` by default (configurable at login).
 
 ### Step 3 — Register and log in
 - Enter a username and password on the login screen
-- First time = auto-register; subsequent launches = login
+- First time = register; subsequent launches = login
 
 ### Step 4 — Private messaging
 - Click any online user from the sidebar
 - Type a message and press **Enter** to send
 - Click **🔓 Decrypt** on received messages to decrypt them
+- If a user is not visible click on **🔄️Refresh**
 
 ### Step 5 — Group chat
 - Click **Create Group** → enter a group name → a join code (e.g. `WOLF-91`) is shown
