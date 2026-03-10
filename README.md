@@ -436,4 +436,8 @@ Contributions are welcome. To contribute:
 4. Submit a pull request with a clear description of what was changed and why
 
 ---
-                                          *LanShareCPP — Secure LAN Messaging*
+<div align="center">
+
+*LanShareCPP — Secure LAN Messaging*
+
+</div>
