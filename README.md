@@ -74,13 +74,6 @@ LanShareCPP_Complete/
 │
 ├── CMakeLists.txt                 # Build configuration
 ├── .gitignore
-├── LICENSE
-├── README.md
-├── MINGW_SETUP.md                 # MinGW setup guide
-├── WINDOWS_SETUP.md               # Full Windows setup guide
-├── VSCODE_SETUP.md                # VSCode configuration guide
-├── TROUBLESHOOTING.md             # Common build/run issues
-└── START_HERE.md                  # Quickstart for new contributors
 ```
 
 ### Layer Communication
