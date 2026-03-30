@@ -6,6 +6,8 @@
 #include <thread>
 #include <chrono>
 #include <algorithm>
+#include <windows.h>
+#include <shlobj.h>
 
 namespace LanShare {
 
@@ -324,9 +326,18 @@ void ClientCore::handleFileComplete(const std::vector<uint8_t>& payload)
 
         // Build Downloads path
         std::string downloadsPath;
+// NEW — resolves the actual Downloads folder even if redirected to OneDrive
 #ifdef _WIN32
+    wchar_t* wpath = nullptr;
+    if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_Downloads, 0, nullptr, &wpath))) {
+        char narrow[MAX_PATH];
+        wcstombs(narrow, wpath, MAX_PATH);
+        downloadsPath = std::string(narrow) + "\\";
+        CoTaskMemFree(wpath);
+    } else {
         const char* home = getenv("USERPROFILE");
         downloadsPath = home ? std::string(home) + "\\Downloads\\" : ".\\";
+    }
 #else
         const char* home = getenv("HOME");
         downloadsPath = home ? std::string(home) + "/Downloads/" : "./";
